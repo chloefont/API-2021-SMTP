@@ -4,7 +4,7 @@ public class Person {
     private String email;
     private Group group = null;
 
-    Person(String firstName, String lastName, Group group) {
+    public Person(String firstName, String lastName, Group group) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.group = group;
