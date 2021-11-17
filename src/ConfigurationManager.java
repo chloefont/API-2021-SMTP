@@ -1,16 +1,10 @@
 public class ConfigurationManager {
 
-    private String filename;
-
-    ConfigurationManager(String filename){
-        this.filename = filename;
-    }
-
-    public Person[] getPersons(){
+    public Person[] getPersons(String filename){
         return new Person[0];
     }
 
-    public String[] getPranks(){
+    public String[] getPranks(String filename){
         return new String[0];
     }
 }
