@@ -4,6 +4,13 @@ public class Mail {
     private String subject;
     private String content;
 
+    public Mail(String[] to, String from, String subject, String content) {
+        this.to = to.clone();
+        this.from = from;
+        this.subject = subject;
+        this.content = content;
+    }
+
     public String getContent() {
         return content;
     }
