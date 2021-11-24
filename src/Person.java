@@ -10,6 +10,18 @@ public class Person {
         this.group = group;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
     public void setGroup(Group group) {
         this.group = group;
     }
