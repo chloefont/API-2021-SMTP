@@ -2,12 +2,11 @@ public class Person {
     private String firstName;
     private String lastName;
     private String email;
-    private Group group = null;
 
-    public Person(String firstName, String lastName, Group group) {
+    public Person(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.group = group;
+        this.email = email;
     }
 
     public String getEmail() {
@@ -22,11 +21,12 @@ public class Person {
         return lastName;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
-    }
-
-    public Group getGroup() {
-        return group;
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
