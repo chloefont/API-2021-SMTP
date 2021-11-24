@@ -1,13 +1,19 @@
 Subject:Ceci est un sujet test
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Salut mon coco, ça va bien ou quoi hahahaha qu'est ce qu'on se marre.
+
+Allez la bise hahahaha
 ==
 Subject:Ceci est un autre sujet test
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Mon frère est allé acheter une banane à supermarché.
+
+Elle n'était pas bonne...
+Malheureusement
+==
+Subject:blablabl
+
+Aujourd'hui est un grand jour, je vends enfin mon poisson rouge Didier.
+J'en pouvais plus de lui il était trop bruyant et il faisait des trous dans mes chaussettes.
+
+A qui mieux mieux

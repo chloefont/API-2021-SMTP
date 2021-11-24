@@ -13,9 +13,9 @@ public class ConfigurationManager {
         this.victimsFilename = victimsFilename;
         this.pranksFilenaame = pranksFilenaame;
 
-        File victimsFile = new File("victims.txt");
+        File victimsFile = new File(victimsFilename);
         victimsFile.createNewFile();
-        File pranksFile = new File("pranks.txt");
+        File pranksFile = new File(pranksFilenaame);
         pranksFile.createNewFile();
 
         victimReader = new BufferedReader(new FileReader(victimsFile));
@@ -23,7 +23,7 @@ public class ConfigurationManager {
 
     }
 
-    public Person[] getPersons(String filename) throws IOException {
+    public Person[] getPersons() throws IOException {
         List<Person> list = new ArrayList<>();
         String line;
 
@@ -35,7 +35,7 @@ public class ConfigurationManager {
         return list.toArray(new Person[0]);
     }
 
-    public Prank[] getPranks(String filename) throws IOException {
+    public Prank[] getPranks() throws IOException {
         List<Prank> list = new ArrayList<>();
         String line;
 
@@ -43,7 +43,7 @@ public class ConfigurationManager {
         while((line = pranksReader.readLine()) != null) {
             String subject = line.substring("subject:".length());
             StringBuilder content = new StringBuilder();
-            while ((line = pranksReader.readLine()).compareTo("==") != 0) {
+            while ((line = pranksReader.readLine()) != null && line.compareTo("==") != 0) {
                 content.append(line).append("\n");
             }
             list.add(new Prank(subject, content.toString()));

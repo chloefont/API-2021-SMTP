@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Mail {
     final private String[] to;
     final private String from;
@@ -25,5 +27,15 @@ public class Mail {
 
     public String[] getTo() {
         return to;
+    }
+
+    @Override
+    public String toString() {
+        return "Mail{" +
+                "to=" + Arrays.toString(to) +
+                ", from='" + from + '\'' +
+                ", subject='" + subject + '\'' +
+                ", content='" + content + '\'' +
+                '}';
     }
 }

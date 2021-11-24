@@ -6,4 +6,12 @@ public class Prank {
         this.subject = subject;
         this.content = content;
     }
+
+    @Override
+    public String toString() {
+        return "Prank{" +
+                "subject='" + subject + '\'' +
+                ", content='" + content + '\'' +
+                '}';
+    }
 }
