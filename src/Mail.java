@@ -1,8 +1,8 @@
 public class Mail {
-    private String[] to;
-    private String from;
-    private String subject;
-    private String content;
+    final private String[] to;
+    final private String from;
+    final private String subject;
+    final private String content;
 
     public Mail(String[] to, String from, String subject, String content) {
         this.to = to.clone();
