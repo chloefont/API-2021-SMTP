@@ -2,12 +2,15 @@ import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
+import java.util.logging.Level;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.logging.Logger;
 
 public class SMTPClient {
     private String ip;
     private int port;
+    private final static Logger LOG = Logger.getLogger(SMTPClient.class.getName());
 
     public SMTPClient(String ip, int port) {
         this.ip = ip;
@@ -26,9 +29,11 @@ public class SMTPClient {
             reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
 
             try {
+                LOG.info("Connecting...");
+
                 // EHLO
                 checkIfRecieveCode(reader, "220");
-                writer.write("EHLO example.com\n");
+                writer.write("EHLO example.com\r\n");
                 writer.flush();
                 checkIfRecieveCode(reader, "250 ");
 
@@ -37,13 +42,15 @@ public class SMTPClient {
                 writer.flush();
                 checkIfRecieveCode(reader, "334 ");
 
-                writer.write("N2YwNDdjM2FjYzcyZTY=\n");
+                writer.write("N2YwNDdjM2FjYzcyZTY=\r\n");
                 writer.flush();
                 checkIfRecieveCode(reader, "334 ");
 
-                writer.write("NWQ4Njk0ODAxZWRiZjU=\n");
+                writer.write("NWQ4Njk0ODAxZWRiZjU=\r\n");
                 writer.flush();
                 checkIfRecieveCode(reader, "235 ");
+
+                LOG.info("Connection made");
 
                 for (String to : mail.getTo()) {
                     // MAIL ADRESSES
@@ -73,6 +80,7 @@ public class SMTPClient {
                 writer.write("quit\r\n");
                 writer.flush();
                 checkIfRecieveCode(reader, "221 ");
+
             } catch (Error e) {
                 System.out.println(e);
             } finally {
@@ -87,18 +95,15 @@ public class SMTPClient {
             System.out.println("Error while connecting : " + e);
         } catch (IOException e) {
             System.out.println("Error while connecting : " + e);
-        } catch (Error e) {
-            System.out.println(e);
         }
 
-
+        LOG.info("All mails sent");
         return true;
     }
 
     private void checkIfRecieveCode(BufferedReader reader, String code) throws IOException, Error {
         String line;
         while((line = reader.readLine()) != null) {
-            System.out.println(line);
             if (line.contains(code)) {
                 return;
             }
@@ -108,5 +113,7 @@ public class SMTPClient {
             if(m.matches())
                 throw new Error(line);
         }
+
+        throw new Error("Status code wasn't found");
     }
 }
