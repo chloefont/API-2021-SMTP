@@ -1,4 +1,5 @@
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,8 +19,8 @@ public class ConfigurationManager {
         File pranksFile = new File(pranksFilenaame);
         pranksFile.createNewFile();
 
-        victimReader = new BufferedReader(new FileReader(victimsFile));
-        pranksReader = new BufferedReader(new FileReader(pranksFile));
+        victimReader = new BufferedReader(new InputStreamReader(new FileInputStream(victimsFile), StandardCharsets.UTF_8));
+        pranksReader = new BufferedReader(new InputStreamReader(new FileInputStream(pranksFile), StandardCharsets.UTF_8));
 
     }
 

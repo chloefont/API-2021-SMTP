@@ -1,20 +1,28 @@
 import java.io.*;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.logging.Level;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.logging.Logger;
 
 public class SMTPClient {
-    private String ip;
-    private int port;
+    final private String ip;
+    final private int port;
+    String username = null;
+    String password = null;
     private final static Logger LOG = Logger.getLogger(SMTPClient.class.getName());
 
     public SMTPClient(String ip, int port) {
         this.ip = ip;
         this.port = port;
+    }
+
+    public SMTPClient(String ip, int port, String username, String password) {
+        this(ip, port);
+        this.username = Base64.getEncoder().encodeToString(username.getBytes(StandardCharsets.UTF_8));
+        this.password = Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8));
     }
 
     public boolean sendMail(Mail mail) {
@@ -38,17 +46,19 @@ public class SMTPClient {
                 checkIfRecieveCode(reader, "250 ");
 
                 // LOGIN
-                writer.write("AUTH LOGIN\r\n");
-                writer.flush();
-                checkIfRecieveCode(reader, "334 ");
+                if (username != null && password != null) {
+                    writer.write("AUTH LOGIN\r\n");
+                    writer.flush();
+                    checkIfRecieveCode(reader, "334 ");
 
-                writer.write("N2YwNDdjM2FjYzcyZTY=\r\n");
-                writer.flush();
-                checkIfRecieveCode(reader, "334 ");
+                    writer.write(username + "\r\n");
+                    writer.flush();
+                    checkIfRecieveCode(reader, "334 ");
 
-                writer.write("NWQ4Njk0ODAxZWRiZjU=\r\n");
-                writer.flush();
-                checkIfRecieveCode(reader, "235 ");
+                    writer.write( password + "\r\n");
+                    writer.flush();
+                    checkIfRecieveCode(reader, "235 ");
+                }
 
                 LOG.info("Connection made");
 
@@ -69,8 +79,10 @@ public class SMTPClient {
 
                     String message = "To: " + to + "\r\n" +
                             "From: " + mail.getFrom() + "\r\n" +
-                            "Subject: " + mail.getSubject() + "\r\n\r\n" +
-                            mail.getContent() + "\r\n\r\n" + "." + "\r\n";
+                            "Content-Type: text/plain; charset=utf-8" + "\r\n" +
+                            "Subject: " + "=?utf-8?B?" +
+                            Base64.getEncoder().encodeToString(mail.getSubject().getBytes(StandardCharsets.UTF_8))
+                            + "?=" + "\r\n\r\n" + mail.getContent() + "\r\n\r\n" + "." + "\r\n";
 
                     writer.write(message);
                     writer.flush();
@@ -81,23 +93,20 @@ public class SMTPClient {
                 writer.flush();
                 checkIfRecieveCode(reader, "221 ");
 
+                LOG.info("All mails sent");
+
             } catch (Error e) {
-                System.out.println(e);
+                LOG.log(Level.SEVERE, e.getMessage());
             } finally {
                 writer.close();;
                 reader.close();
                 socket.close();
             }
 
-
-
-        } catch (UnknownHostException e) {
-            System.out.println("Error while connecting : " + e);
         } catch (IOException e) {
-            System.out.println("Error while connecting : " + e);
+            LOG.log(Level.SEVERE, "Error while connecting : " + e);
         }
 
-        LOG.info("All mails sent");
         return true;
     }
 

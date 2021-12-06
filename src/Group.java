@@ -3,7 +3,7 @@ public class Group {
     private Person[] receivers;
 
     Group(Person sender, Person[] receivers) throws Exception {
-        if(receivers.length < 2 || sender == null){
+        if(receivers.length == 0 || sender == null){
             throw new Exception("Il n'y a pas assez de gens dans le groupe");
         }
 
