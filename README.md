@@ -17,7 +17,7 @@ docker build -t mockmock:latest
 ```
 Lancer le container
 ```
-docker run -p 8282:8282 25:25 api2021smtp
+docker run -p 8282:8282 25:25 mockmock:latest
 ```
 ## UI de MockMock
 
