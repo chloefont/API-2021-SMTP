@@ -22,12 +22,12 @@ cd ./docker
 
 Créer un container:
 ```
-docker build -t mockmock:latest
+docker build --pull --rm -f "Dockerfile" -t mockmock:latest "."
 ```
 
 Lancer le container
 ```
-docker run -p 8282:8282 25:25 mockmock:latest
+docker run -p 8282:8282 -p 25:25 mockmock:latest
 ```
 ### UI de MockMock
 
