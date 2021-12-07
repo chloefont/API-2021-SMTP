@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="139mm" y="-30mm" width="712mm" height="471mm" viewBox="139 -30 712 471">
+<style type="text/css"><![CDATA[
+text { font:12px Dialog; }
+]]></style>
+<line x1="440" y1="220" x2="320" y2="220" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="230" y1="245" x2="230" y2="350" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="230,245 237,258 230,271 223,258" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="230,245 237,258 230,271 223,258" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polyline points="222,330 230,350 238,330" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="290" y1="245" x2="290" y2="350" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polyline points="282,330 290,350 298,330" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<rect x="180" y="10" width="180" height="140" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="180" y="10" width="180" height="140" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="208" y="32" style="font:12px Ubuntu">ConfigurationManager</text>
+<line x1="180" y1="45" x2="360" y2="45" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="188" y="60" style="font:12px Ubuntu">- victimFilename : String</text>
+<text x="188" y="74" style="font:12px Ubuntu">- prankFilename : String</text>
+<text x="188" y="88" style="font:12px Ubuntu">- victimsReader : Buffered...</text>
+<text x="188" y="102" style="font:12px Ubuntu">- pranksReader : BufferedR...</text>
+<line x1="180" y1="111" x2="360" y2="111" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="188" y="126" style="font:12px Ubuntu">+ getPersons () : Person[]</text>
+<text x="188" y="140" style="font:12px Ubuntu">+ getPranks () : String[]</text>
+<rect x="440" y="180" width="390" height="83" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="440" y="180" width="390" height="83" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="591" y="202" style="font:12px Ubuntu">PrankGenerator</text>
+<line x1="440" y1="215" x2="830" y2="215" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="448" y="230" style="font:12px Ubuntu">- pranks : String[]</text>
+<line x1="440" y1="239" x2="830" y2="239" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="448" y="254" style="font:12px Ubuntu">+ generateMails (Persons : Person[], nbGroups : int) : Mail[]</text>
+<rect x="170" y="350" width="150" height="69" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="170" y="350" width="150" height="69" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="226" y="372" style="font:12px Ubuntu">Person</text>
+<line x1="170" y1="385" x2="320" y2="385" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="178" y="400" style="font:12px Ubuntu">- email : String</text>
+<line x1="170" y1="409" x2="320" y2="409" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="170" y="190" width="150" height="55" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="170" y="190" width="150" height="55" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="228" y="212" style="font:12px Ubuntu">Group</text>
+<line x1="170" y1="225" x2="320" y2="225" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="170" y1="235" x2="320" y2="235" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="670" y="20" width="160" height="97" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="670" y="20" width="160" height="97" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="718" y="42" style="font:12px Ubuntu">SMTPClient</text>
+<line x1="670" y1="55" x2="830" y2="55" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="678" y="70" style="font:12px Ubuntu">- ip : String</text>
+<text x="678" y="84" style="font:12px Ubuntu">- port : Int</text>
+<line x1="670" y1="93" x2="830" y2="93" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="678" y="108" style="font:12px Ubuntu">+ Send (mail : Mail) : bool</text>
+<rect x="440" y="290" width="150" height="111" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="440" y="290" width="150" height="111" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="503" y="312" style="font:12px Ubuntu">Mail</text>
+<line x1="440" y1="325" x2="590" y2="325" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="448" y="340" style="font:12px Ubuntu">- to : String[]</text>
+<text x="448" y="354" style="font:12px Ubuntu">- from : String</text>
+<text x="448" y="368" style="font:12px Ubuntu">- subject : String</text>
+<text x="448" y="382" style="font:12px Ubuntu">- content : String</text>
+<line x1="440" y1="391" x2="590" y2="391" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="450" y="20" width="150" height="83" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="450" y="20" width="150" height="83" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="509" y="42" style="font:12px Ubuntu">Prank</text>
+<line x1="450" y1="55" x2="600" y2="55" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="458" y="70" style="font:12px Ubuntu">- subject : String</text>
+<text x="458" y="84" style="font:12px Ubuntu">- content : String</text>
+<line x1="450" y1="93" x2="600" y2="93" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="418" y="209" style="font:14px Ubuntu">0..*</text>
+<text x="325" y="212" style="font:14px Ubuntu">1..*</text>
+<text x="160" y="301" style="font:14px Ubuntu">recievers</text>
+<text x="208" y="265" style="font:14px Ubuntu">1</text>
+<text x="204" y="339" style="font:14px Ubuntu">3..*</text>
+<text x="295" y="315" style="font:14px Ubuntu">sender</text>
+<text x="277" y="263" style="font:14px Ubuntu">1</text>
+<text x="277" y="342" style="font:14px Ubuntu">1</text>
+<path d="M140,-29 L140,1 L205,1 Q235,1 235,-29 L140,-29" style="fill:rgb(255,247,225);stroke:none" />
+<path d="M140,-29 L140,1 L205,1 Q235,1 235,-29 L140,-29" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="145" y="-7" style="font:16px Ubuntu">API SMTP</text>
+<rect x="140" y="-29" width="709" height="468" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+</svg>
