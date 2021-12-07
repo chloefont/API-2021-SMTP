@@ -1,3 +1,5 @@
+package SMTP_Client;
+
 import java.util.Arrays;
 
 public class Mail {
@@ -31,7 +33,7 @@ public class Mail {
 
     @Override
     public String toString() {
-        return "Mail{" +
+        return "SMTP_Client.Mail{" +
                 "to=" + Arrays.toString(to) +
                 ", from='" + from + '\'' +
                 ", subject='" + subject + '\'' +

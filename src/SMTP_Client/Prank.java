@@ -1,3 +1,5 @@
+package SMTP_Client;
+
 public class Prank {
     String subject;
     String content;
@@ -9,7 +11,7 @@ public class Prank {
 
     @Override
     public String toString() {
-        return "Prank{" +
+        return "SMTP_Client.Prank{" +
                 "subject='" + subject + '\'' +
                 ", content='" + content + '\'' +
                 '}';

@@ -1,3 +1,5 @@
+package SMTP_Client;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,7 +11,7 @@ public class PrankGenerator {
     private String[] pranks;
     private ConfigurationManager configurationManager;
 
-    PrankGenerator() throws IOException {
+    public PrankGenerator() throws IOException {
         configurationManager = new ConfigurationManager("victims.txt", "pranks.txt");
     }
 

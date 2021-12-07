@@ -1,3 +1,7 @@
+package SMTP_Client;
+
+import SMTP_Client.Person;
+
 public class Group {
     private Person sender;
     private Person[] receivers;

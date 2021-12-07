@@ -1,3 +1,8 @@
+package SMTP_Client;
+
+import SMTP_Client.Person;
+import SMTP_Client.Prank;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -10,7 +15,7 @@ public class ConfigurationManager {
     BufferedReader victimReader;
     BufferedReader pranksReader;
 
-    ConfigurationManager(String victimsFilename, String pranksFilenaame) throws IOException {
+    public ConfigurationManager(String victimsFilename, String pranksFilenaame) throws IOException {
         this.victimsFilename = victimsFilename;
         this.pranksFilenaame = pranksFilenaame;
 
@@ -29,8 +34,7 @@ public class ConfigurationManager {
         String line;
 
         while((line = victimReader.readLine()) != null){
-            String[] infos = line.split(" ");
-            list.add(new Person(infos[0], infos[1], infos[2]));
+            list.add(new Person(line));
         }
 
         return list.toArray(new Person[0]);

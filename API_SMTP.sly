@@ -15,14 +15,14 @@
         </multiplicity>
       </role>
     </association>
-    <entity entityType="CLASS" id="537" isAbstract="false" name="ConfigurationManager" visibility="PUBLIC">
-      <method isAbstract="false" isStatic="false" name="getPersons" returnType="Person[]" view="DEFAULT" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="537" isAbstract="false" name="SMTP_Client.ConfigurationManager" visibility="PUBLIC">
+      <method isAbstract="false" isStatic="false" name="getPersons" returnType="SMTP_Client.Person[]" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="false" isStatic="false" name="getPranks" returnType="String[]" view="DEFAULT" visibility="PUBLIC"/>
     </entity>
-    <entity entityType="CLASS" id="536" isAbstract="false" name="PrankGenerator" visibility="PUBLIC">
+    <entity entityType="CLASS" id="536" isAbstract="false" name="SMTP_Client.PrankGenerator" visibility="PUBLIC">
       <attribute const="false" defaultValue="" isStatic="false" name="pranks" type="String[]" visibility="PRIVATE"/>
-      <method isAbstract="false" isStatic="false" name="generateMails" returnType="Mail[]" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="Persons" type="Person[]"/>
+      <method isAbstract="false" isStatic="false" name="generateMails" returnType="SMTP_Client.Mail[]" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="Persons" type="SMTP_Client.Person[]"/>
         <variable const="false" name="nbGroups" type="int"/>
       </method>
     </entity>
@@ -40,20 +40,20 @@
         </multiplicity>
       </role>
     </association>
-    <entity entityType="CLASS" id="355" isAbstract="false" name="Person" visibility="PUBLIC">
+    <entity entityType="CLASS" id="355" isAbstract="false" name="SMTP_Client.Person" visibility="PUBLIC">
       <attribute const="false" defaultValue="" isStatic="false" name="firstname" type="String" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="false" name="lastname" type="String" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="false" name="email" type="String" visibility="PRIVATE"/>
     </entity>
-    <entity entityType="CLASS" id="354" isAbstract="false" name="Group" visibility="PUBLIC"/>
-    <entity entityType="CLASS" id="133" isAbstract="false" name="SMTPClient" visibility="PUBLIC">
+    <entity entityType="CLASS" id="354" isAbstract="false" name="SMTP_Client.Group" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="133" isAbstract="false" name="SMTP_Client.SMTPClient" visibility="PUBLIC">
       <attribute const="false" defaultValue="" isStatic="false" name="ip" type="String" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="false" name="port" type="Int" visibility="PRIVATE"/>
       <method isAbstract="false" isStatic="false" name="Send" returnType="bool" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="mail" type="Mail"/>
+        <variable const="false" name="mail" type="SMTP_Client.Mail"/>
       </method>
     </entity>
-    <entity entityType="CLASS" id="1" isAbstract="false" name="Mail" visibility="PUBLIC">
+    <entity entityType="CLASS" id="1" isAbstract="false" name="SMTP_Client.Mail" visibility="PUBLIC">
       <attribute const="false" defaultValue="" isStatic="false" name="to" type="String[]" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="false" name="from" type="String" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="false" name="subject" type="String" visibility="PRIVATE"/>
