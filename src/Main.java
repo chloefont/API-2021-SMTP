@@ -15,13 +15,13 @@ public class Main {
 
         String serverHost = args[0];
         int serverPort = Integer.parseInt(args[1]);
-
+        int nbGroups = Integer.parseInt(args[2]);
         String login = null;
         String password = null;
 
-        if(args.length > 2){
-            login = args[2];
-            password = args[3];
+        if(args.length > 3){
+            login = args[3];
+            password = args[4];
         }
 
         SMTPClient smtpClient = login == null ?
@@ -33,7 +33,7 @@ public class Main {
             ConfigurationManager cm = new ConfigurationManager("victims.txt", "pranks.txt");
             //System.out.println(Arrays.toString(cm.getPersons()));
             //System.out.println(Arrays.toString(cm.getPranks()));
-            Mail[] mails = (new PrankGenerator()).generateMails(cm.getPersons(),1, cm.getPranks());
+            Mail[] mails = (new PrankGenerator()).generateMails(cm.getPersons(),nbGroups, cm.getPranks());
             for(Mail mail : mails){
                 smtpClient.sendMail(mail);
             }
