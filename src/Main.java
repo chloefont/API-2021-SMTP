@@ -7,15 +7,21 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
-        String serverHost = args[1];
-        int serverPort = Integer.parseInt(args[2]);
+
+        if(args.length < 2){
+            System.out.println("Please enter an IP and a Port.");
+            return;
+        }
+
+        String serverHost = args[0];
+        int serverPort = Integer.parseInt(args[1]);
 
         String login = null;
         String password = null;
 
-        if(args.length > 3){
-            login = args[3];
-            password = args[4];
+        if(args.length > 2){
+            login = args[2];
+            password = args[3];
         }
 
         SMTPClient smtpClient = login == null ?
