@@ -3,6 +3,8 @@
 Dans le cadre du cours API à l'HEIG-VD, nous avons implémenté un client SMTP dont l'objectif est d'envoyer des mails pranks à une liste de contacts.
 Il est possible de modifier la liste des contacts ainsi que des messages en modifiant les fichiers [victims.txt](victims.txt) et [pranks.txt](pranks.txt).
 
+Les victimes sont divisées en le nombre de groupe passé par paramètre au programme et un message (choisi au hasard dans la liste des pranks) est envoyé par mail à toutes les victimes du groupe.
+
 ## MockMock
 
 MockMock est un outil qui simule un serveur SMTP. Il permet de tester un client SMTP et offre une interface permettant de visualiser les mails envoyés.
@@ -68,8 +70,9 @@ A qui mieux mieux
 Le Main de notre projet prend les informations suivantes en paramètre (dans le même ordre) :
 1. l'adresse ip du serveur
 2. le port du serveur
-3. l'identifiant de l'utilisateur (facultatif)
-4. le mot de passe de l'utilisateur (facultatif)
+3. le nombre de groupe à créer 
+4. l'identifiant de l'utilisateur (facultatif)
+5. le mot de passe de l'utilisateur (facultatif)
 
 Les deux premiers paramètres sont obligatoires et les deux dernier dépendent du besoin d'identification du serveur (c'est le cas avec mailtrap par exemple).
 
@@ -78,3 +81,12 @@ Pour se connecter à notre serveur MockMock introduit ci-dessus, l'adresse ip à
 
 ## Description de notre implémentation
 ![image info](./uml.svg)
+
+Nous avons choisi de séparer le parsing des fichiers de victimes et de messages de pranks et la connexion au serveur SMTP.
+
+### Construction des messages et de la liste de victimes
+La classe ConfigurationManager s'occupe de de parser les fichiers [victims.txt](victims.txt) et [pranks.txt](pranks.txt) et de créer des objets de type Prank et Person.
+Ces informations sont transmises au PrankGenerator avec le nombres de groupes à créer et ce dernier construit les groupes et les mail et assigne à chaque groupe un mail.
+
+### Construction du client SMTP
+La classe SMTPCLient construit un client SMTP, établit une connexion avec le serveur SMTP dont les informations lui sont passées par paramètre et envoie le mail qui lui est également passé par paramètre. 
