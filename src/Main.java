@@ -31,8 +31,6 @@ public class Main {
 
         try{
             ConfigurationManager cm = new ConfigurationManager("victims.txt", "pranks.txt");
-            //System.out.println(Arrays.toString(cm.getPersons()));
-            //System.out.println(Arrays.toString(cm.getPranks()));
             Mail[] mails = (new PrankGenerator()).generateMails(cm.getPersons(),nbGroups, cm.getPranks());
             for(Mail mail : mails){
                 smtpClient.sendMail(mail);
