@@ -8,6 +8,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Cette classe permet de récupérer les informations contenues dans les fichiers renseignés dans le constructeur.
+ */
 public class ConfigurationManager {
     String victimsFilename;
     String pranksFilenaame;
@@ -15,6 +18,12 @@ public class ConfigurationManager {
     BufferedReader victimReader;
     BufferedReader pranksReader;
 
+    /**
+     *
+     * @param victimsFilename Le nom du fichier contenant les victimes.
+     * @param pranksFilenaame Le nom du fichier contenant les pranks.
+     * @throws IOException
+     */
     public ConfigurationManager(String victimsFilename, String pranksFilenaame) throws IOException {
         this.victimsFilename = victimsFilename;
         this.pranksFilenaame = pranksFilenaame;
@@ -29,6 +38,11 @@ public class ConfigurationManager {
 
     }
 
+    /**
+     * Récupérer les Personnes dans le fichier.
+     * @return Un tableau de Personne.
+     * @throws IOException
+     */
     public Person[] getPersons() throws IOException {
         List<Person> list = new ArrayList<>();
         String line;
@@ -40,6 +54,11 @@ public class ConfigurationManager {
         return list.toArray(new Person[0]);
     }
 
+    /**
+     * Permet de récupérer les pranks dans le fichier.
+     * @return Un tableau de Pranks.
+     * @throws IOException
+     */
     public Prank[] getPranks() throws IOException {
         List<Prank> list = new ArrayList<>();
         String line;

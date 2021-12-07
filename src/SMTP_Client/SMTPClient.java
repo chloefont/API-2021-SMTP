@@ -9,6 +9,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.logging.Logger;
 
+/**
+ * Permet de d'envoyer un mail à l'aide du protocole SMTP
+ */
 public class SMTPClient {
     final private String ip;
     final private int port;
@@ -16,17 +19,33 @@ public class SMTPClient {
     String password = null;
     private final static Logger LOG = Logger.getLogger(SMTPClient.class.getName());
 
+    /**
+     * @param ip Adresse ip du serveur ou nom d'hote.
+     * @param port port utilisé par le serveur.
+     */
     public SMTPClient(String ip, int port) {
         this.ip = ip;
         this.port = port;
     }
 
+    /**
+     * Ce constructeur prend en charge l'authentification.
+     * @param ip Adresse ip du serveur ou nom d'hote.
+     * @param port Port utilisé par le serveur.
+     * @param username Nom d'utilisateur.
+     * @param password Mot de passe.
+     */
     public SMTPClient(String ip, int port, String username, String password) {
         this(ip, port);
         this.username = Base64.getEncoder().encodeToString(username.getBytes(StandardCharsets.UTF_8));
         this.password = Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8));
     }
 
+    /**
+     * Permet d'envoyer un mail.
+     * @param mail Objet contenant toutes les informations nécessaires pour l'envoi d'un mail.
+     * @return Vrai si l'envoie à réussi.
+     */
     public boolean sendMail(Mail mail) {
         Socket socket = null;
         BufferedWriter writer = null;
@@ -112,6 +131,13 @@ public class SMTPClient {
         return true;
     }
 
+    /**
+     * Permet de vérifier si il y a une erreur durant les requêtes.
+     * @param reader Les messages reçu du serveur.
+     * @param code Le code à vérifier.
+     * @throws IOException
+     * @throws Error Dans le cas ou une erreur est trouvée une exception est levée.
+     */
     private void checkIfRecieveCode(BufferedReader reader, String code) throws IOException, Error {
         String line;
         while((line = reader.readLine()) != null) {

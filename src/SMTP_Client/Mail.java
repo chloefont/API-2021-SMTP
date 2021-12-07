@@ -2,6 +2,9 @@ package SMTP_Client;
 
 import java.util.Arrays;
 
+/**
+ * Cette classe contient toutes les informations nécessaires pour l'envoie d'un mail.
+ */
 public class Mail {
     final private String[] to;
     final private String from;

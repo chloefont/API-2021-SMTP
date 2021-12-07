@@ -8,13 +8,16 @@ import java.util.concurrent.ThreadLocalRandom;
 
 
 public class PrankGenerator {
-    private String[] pranks;
-    private ConfigurationManager configurationManager;
+    public PrankGenerator(){}
 
-    public PrankGenerator() throws IOException {
-        configurationManager = new ConfigurationManager("victims.txt", "pranks.txt");
-    }
-
+    /**
+     * Permet de générer des groupes de personnes recevant le même mail.
+     * @param persons La liste des personnes.
+     * @param nbGroup Le nombre de groupe à créer.
+     * @param pranks Les prank à envoyer.
+     * @return Un tableau de mail.
+     * @throws IOException
+     */
     public Mail[] generateMails(Person[] persons, int nbGroup, Prank[] pranks) throws IOException {
 
         ArrayList<Person> personsList = new ArrayList<Person>(Arrays.asList(persons));
@@ -24,6 +27,13 @@ public class PrankGenerator {
         return getMail(groups, pranks);
     }
 
+    /**
+     * Permet d'assigner un mail à un groupe.
+     * @param groups la liste des groupes créé.
+     * @param pranks la liste des pranks à assigner aux groupes.
+     * @return
+     * @throws IOException
+     */
     private Mail[] getMail(Group[] groups, Prank[] pranks) throws IOException {
         List<Mail> mails = new ArrayList<>();
 
@@ -42,6 +52,12 @@ public class PrankGenerator {
         return mails.toArray(new Mail[0]);
     }
 
+    /**
+     * Permet de créer des groupes aléatoirement.
+     * @param nbGroup Le nombre de groupes à créer.
+     * @param personsList La liste des personnes.
+     * @return Un tableau de groupes de personnes.
+     */
     private Group[] createGroups(int nbGroup, ArrayList<Person> personsList) {
         Group[] groups = new Group[nbGroup];
         int groupSize = personsList.size() / nbGroup;
@@ -67,9 +83,5 @@ public class PrankGenerator {
             group.clear();
         }
         return groups;
-    }
-
-    public String[] getPranks() {
-        return pranks;
     }
 }

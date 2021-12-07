@@ -2,6 +2,9 @@ package SMTP_Client;
 
 import SMTP_Client.Person;
 
+/**
+ * Cette classe contient l'envoyeur d'un mail ainsi que les receveurs du mail.
+ */
 public class Group {
     private Person sender;
     private Person[] receivers;
