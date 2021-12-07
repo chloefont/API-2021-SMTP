@@ -80,7 +80,7 @@ Pour se connecter à notre serveur MockMock introduit ci-dessus, l'adresse ip à
 
 
 ## Description de notre implémentation
-![image info](./uml.svg)
+![image info](./figures/uml.svg)
 
 Nous avons choisi de séparer le parsing des fichiers de victimes et de messages de pranks et la connexion au serveur SMTP.
 
