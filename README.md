@@ -74,7 +74,7 @@ Le Main de notre projet prend les informations suivantes en paramètre (dans le 
 4. l'identifiant de l'utilisateur (facultatif)
 5. le mot de passe de l'utilisateur (facultatif)
 
-Les deux premiers paramètres sont obligatoires et les deux dernier dépendent du besoin d'identification du serveur (c'est le cas avec mailtrap par exemple).
+Les trois premiers paramètres sont obligatoires et les deux dernier dépendent du besoin d'identification du serveur (c'est le cas avec mailtrap par exemple).
 
 Pour se connecter à notre serveur MockMock introduit ci-dessus, l'adresse ip à entrer est "localhost" et le numéro de port est 25 et aucune identification n'est requise.
 

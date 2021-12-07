@@ -8,7 +8,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
 
-        if(args.length < 2){
+        if(args.length < 3){
             System.out.println("Please enter an IP and a Port.");
             return;
         }
