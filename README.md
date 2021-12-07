@@ -5,22 +5,72 @@ Il est possible de modifier la liste des contacts ainsi que des messages en modi
 
 ## MockMock
 
-MockMock est un outil qui permet de tester notre client SMTP.
-Si vous désirez tester notre client sur un faux serveur SMPT veuillez suivre les étapes qui suivent.
+MockMock est un outil qui simule un serveur SMTP. Il permet de tester un client SMTP et offre une interface permettant de visualiser les mails envoyés.
 
-## Installer MockMock
+Si vous désirez tester notre client sur le faux serveur SMPT MockMock, veuillez suivre les étapes suivantes...
+
+## Installation de MockMock
 Prérequis: Docker
 ### Etapes:
+
+Rendez vous dans le dossier docker :
+```
+cd ./docker
+```
+
 Créer un container:
 ```
 docker build -t mockmock:latest
 ```
+
 Lancer le container
 ```
 docker run -p 8282:8282 25:25 mockmock:latest
 ```
-## UI de MockMock
+### UI de MockMock
 
-Pour accéder à l'interface utilisateur de MockMock rendez-vous à cette adresse: [http://localhost:8282](http://localhost:8282)
+Pour accéder à l'interface utilisateur de MockMock, rendez-vous à cette adresse: [http://localhost:8282](http://localhost:8282)
 
-### Comment utiliser notre client SMTP
+## Comment utiliser notre client SMTP
+
+### Victimes
+Pour ajouter ou modifier les adresses mails des victimes, modifiez le fichier [victims.txt](victims.txt) en respectant ces règles :
+1. Une victime par ligne
+2. Renseigner uniquement l'adresse mail
+
+```
+exemple1@gmail.com
+exemple2@heig-vd.ch
+```
+
+### Messages de prank
+Pour ajouter ou modifier les messages de prank, modifiez le fichier [pranks.txt](pranks.txt) en respectant ces règles :
+1. Séparer les message par un retour à la ligne, `==` puis un retour à la ligne.
+2. Définir le sujet en le préfixant par le mot clé `Subject:` suivi d'un retour à la ligne.
+
+```
+Subject:Ceci est un autre sujet test
+
+Mon frère est allé acheter une banane à supermarché.
+
+Elle n'était pas bonne...
+Malheureusement
+==
+Subject:blablabl
+
+Aujourd'hui est un grand jour, je vends enfin mon poisson rouge Didier.
+J'en pouvais plus de lui il était trop bruyant et il faisait des trous dans mes chaussettes.
+
+A qui mieux mieux
+```
+
+### Informations de connexion au serveur
+Le Main de notre projet prend les informations suivantes en paramètre (dans le même ordre) :
+1. l'adresse ip du serveur
+2. le port du serveur
+3. l'identifiant de l'utilisateur (facultatif)
+4. le mot de passe de l'utilisateur (facultatif)
+
+Les deux premiers paramètres sont obligatoires et les deux dernier dépendent du besoin d'identification du serveur (c'est le cas avec mailtrap par exemple).
+
+Pour se connecter à notre serveur MockMock introduit ci-dessus, l'adresse ip à entrer est "localhost" et le numéro de port est 25 et aucune identification n'est requise.
