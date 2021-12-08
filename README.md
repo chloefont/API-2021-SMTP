@@ -22,7 +22,7 @@ cd ./docker
 
 Créer un container:
 ```
-docker build --pull --rm -f "Dockerfile" -t mockmock:latest "."
+docker build --pull --rm -f "DockerFile" -t mockmock:latest "."
 ```
 
 Lancer le container
@@ -92,11 +92,12 @@ Ces informations sont transmises au PrankGenerator avec le nombres de groupes à
 La classe SMTPCLient construit un client SMTP, établit une connexion avec le serveur SMTP dont les informations lui sont passées par paramètre et envoie le mail qui lui est également passé par paramètre.
 
 Pour build le projet faites:
-´´´
+
+```
 javac -d build src/*.java
 jar cfe smtp-client.jar Main build/*
+```
 
-´´´
 Pour executer le client faites:
 ```
 java -jar smtp-client.jar localhost 25 1
