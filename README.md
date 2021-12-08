@@ -78,6 +78,23 @@ Les trois premiers paramètres sont obligatoires et les deux dernier dépendent 
 
 Pour se connecter à notre serveur MockMock introduit ci-dessus, l'adresse ip à entrer est "localhost" et le numéro de port est 25 et aucune identification n'est requise.
 
+### Lancer le programme
+
+Pour build le projet :
+
+```
+cd src
+javac -d ../build *.java
+cd ../build
+jar cfe ../smtp-client.jar Main *
+cd ..
+```
+
+Pour executer le client :
+```
+java -jar smtp-client.jar localhost 25 1
+```
+
 
 ## Description de notre implémentation
 ![image info](./figures/uml.svg)
@@ -90,17 +107,4 @@ Ces informations sont transmises au PrankGenerator avec le nombres de groupes à
 
 ### Construction du client SMTP
 La classe SMTPCLient construit un client SMTP, établit une connexion avec le serveur SMTP dont les informations lui sont passées par paramètre et envoie le mail qui lui est également passé par paramètre.
-
-Pour build le projet faites:
-
-```
-javac -d build src/*.java
-jar cfe smtp-client.jar Main build/*
-```
-
-Pour executer le client faites:
-```
-java -jar smtp-client.jar localhost 25 1
-```
-
 
