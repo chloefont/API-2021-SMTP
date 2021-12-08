@@ -89,4 +89,17 @@ La classe ConfigurationManager s'occupe de de parser les fichiers [victims.txt](
 Ces informations sont transmises au PrankGenerator avec le nombres de groupes à créer et ce dernier construit les groupes et les mail et assigne à chaque groupe un mail.
 
 ### Construction du client SMTP
-La classe SMTPCLient construit un client SMTP, établit une connexion avec le serveur SMTP dont les informations lui sont passées par paramètre et envoie le mail qui lui est également passé par paramètre. 
+La classe SMTPCLient construit un client SMTP, établit une connexion avec le serveur SMTP dont les informations lui sont passées par paramètre et envoie le mail qui lui est également passé par paramètre.
+
+Pour build le projet faites:
+´´´
+javac -d build src/*.java
+jar cfe smtp-client.jar Main build/*
+
+´´´
+Pour executer le client faites:
+```
+java -jar smtp-client.jar localhost 25 1
+```
+
+
